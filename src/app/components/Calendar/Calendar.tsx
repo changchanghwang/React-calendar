@@ -10,11 +10,11 @@ const CalendarWrap = styled.div`
   margin: 200px auto;
 `;
 
-function Calendar(props: {}) {
+function Calendar(props: { setIsOpen: any }) {
   // prop destruction
+  const { setIsOpen } = props;
   // lib, style hooks
   // state, ref hooks
-  const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<[{ title: string; date: string }]>();
   const calendarRef = useRef(null);
   // formik
@@ -23,7 +23,7 @@ function Calendar(props: {}) {
   // effects
   // handlers
   const handleDate = (info: { date: Date; dateStr: string; allDay: boolean; dayEl: any; jsEvent: any; view: any }) => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
     setValue([{ title: 'hi', date: '2022-03-18' }]);
   };
   return (

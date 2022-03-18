@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const GrayBackground = styled.div`
   position: fixed;
@@ -30,6 +31,18 @@ const PopUpWrap = styled.div`
   }
 `;
 
+const Close = styled.button`
+  position: fixed;
+  font-size: 25px;
+  top: -35px;
+  right: -3px;
+  border: 0;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 100;
+`;
+
 function Modal(props: {}) {
   // prop destruction
   // lib, style hooks
@@ -39,6 +52,15 @@ function Modal(props: {}) {
   // calculated values
   // effects
   // handlers
+  return (
+    <GrayBackground>
+      <PopUpWrap>
+        <Close>
+          <AiOutlineClose />
+        </Close>
+      </PopUpWrap>
+    </GrayBackground>
+  );
 }
 
 export { Modal };
