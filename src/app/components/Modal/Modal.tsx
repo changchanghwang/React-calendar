@@ -43,8 +43,11 @@ const Close = styled.button`
   z-index: 100;
 `;
 
-function Modal(props: {}) {
+function Modal(props: { openState: [isOpen: boolean, setIsOpen: any] }) {
   // prop destruction
+  const {
+    openState: [isOpen, setIsOpen],
+  } = props;
   // lib, style hooks
   // state, ref hooks
   // formik
@@ -52,10 +55,13 @@ function Modal(props: {}) {
   // calculated values
   // effects
   // handlers
+  const handleModalClick = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <GrayBackground>
+    <GrayBackground onClick={handleModalClick}>
       <PopUpWrap>
-        <Close>
+        <Close onClick={handleModalClick}>
           <AiOutlineClose />
         </Close>
       </PopUpWrap>

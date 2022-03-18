@@ -15,7 +15,7 @@ function IndexScreen() {
   return (
     <>
       <Calendar setIsOpen={setIsOpen} />
-      {isOpen && <Modal />}
+      {isOpen && <Modal openState={[isOpen, setIsOpen]} />}
     </>
   );
 }
